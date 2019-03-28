@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import Movie from "./components/Movie";
+import MoviesList from "./components/MoviesList";
+import MovieDetail from "./components/MovieDetail";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
 
 class App extends Component {
@@ -24,12 +26,14 @@ class App extends Component {
   render() {
     const { movies } = this.state;
     return (
-      <div className="App">
-        <h1>Movies</h1>
-        {movies.map(movie => (
-          <Movie movie={movie} key={movie.id} />
-        ))}
-      </div>
+      <Router>
+        <Route
+          exact
+          path="/"
+          render={props => <MoviesList {...props} movies={movies} />}
+        />
+        <Route path="/:id" component={MovieDetail} />
+      </Router>
     );
   }
 }
