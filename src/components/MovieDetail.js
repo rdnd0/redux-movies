@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Overdrive from "react-overdrive";
 
 export default class MovieDetail extends Component {
   state = {
@@ -35,16 +36,18 @@ export default class MovieDetail extends Component {
             backgroundRepeat: "no-repeat"
           }}
         />
-        <img
-          style={{
-            position: "relative",
-            top: "-10rem",
-            margin: "0",
-            zIndex: "1"
-          }}
-          src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-          alt={movie.title}
-        />
+        <Overdrive id={movie.id}>
+          <img
+            style={{
+              position: "relative",
+              top: "-10rem",
+              margin: "0",
+              zIndex: "1"
+            }}
+            src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+            alt={movie.title}
+          />
+        </Overdrive>
         <div
           style={{
             height: "20vh",
