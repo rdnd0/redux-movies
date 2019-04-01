@@ -11,7 +11,7 @@ export default class MoviesList extends Component {
         {movies.map(movie => (
           <Movie movie={movie} key={movie.id} />
         ))}
-        <CountDown />
+        {/* <CountDown /> */}
       </div>
     );
   }
