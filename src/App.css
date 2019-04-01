@@ -27,7 +27,16 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.movie-grid {
+  display: grid;
+  grid-row-gap: 20px;
+  grid-template-columns: repeat(5, minmax(100px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 1rem;
 }

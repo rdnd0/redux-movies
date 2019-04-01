@@ -27,6 +27,9 @@ class App extends Component {
     const { movies } = this.state;
     return (
       <Router>
+        <Link to="/">
+          <h1>Movies</h1>
+        </Link>
         <Route
           exact
           path="/"
