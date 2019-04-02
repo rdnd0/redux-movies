@@ -19,7 +19,7 @@ export function getMovies() {
     //now we want to return de dispatch of a function
 
     return dispatch({
-      type: GET_MOVIES,
+      type: "GET_MOVIES",
       data: movies.results
     });
   };
