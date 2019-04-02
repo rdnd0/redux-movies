@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { toggleMessage, getMovies } from "../actions";
+import { toggleMessage } from "./actions";
+import { getMovies } from "../movies/actions";
+
 import { bindActionCreators } from "redux";
 
 const Toggle = ({ messageVisibility, toggleMessage, getMovies }) => {
@@ -27,7 +29,7 @@ const mapDispatchToProps = dispatch =>
 //pick which items from the store go into the component
 
 const mapStateToProps = state => ({
-  messageVisibility: state.message.messageVisibility
+  messageVisibility: state.toggle.messageVisibility
 });
 
 //messageVisibility is now part of the component's props

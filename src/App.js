@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import MoviesList from "./components/MoviesList";
-import MovieDetail from "./components/MovieDetail";
-import Toggle from "./components/Toggle";
+import MoviesList from "./movies/MoviesList";
+import MovieDetail from "./movies/MovieDetail";
+import Toggle from "./toggle/Toggle";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
