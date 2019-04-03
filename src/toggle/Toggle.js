@@ -10,7 +10,7 @@ const Toggle = ({ messageVisibility, toggleMessage, getMovies }) => {
     <div>
       {messageVisibility && <p>available if redux action is toggled</p>}
       <button onClick={toggleMessage}>Toggle Me</button>
-      <button onClick={getMovies}>Get movies</button>
+      {/* <button onClick={getMovies}>Get movies</button> */}
     </div>
   );
 };

@@ -5,11 +5,10 @@ import Overdrive from "react-overdrive";
 export default function Movie({ movie }) {
   return (
     <div>
-      <h4>{movie.title}</h4>
       <Link to={`/${movie.id}`}>
         <Overdrive id={movie.id}>
           <img
-            src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+            src={`https:/image.tmdb.org/t/p/w200${movie.poster_path}`}
             alt={movie.title}
           />
         </Overdrive>

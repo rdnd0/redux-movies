@@ -1,8 +1,16 @@
 import React, { Component } from "react";
 import Movie from "./Movie";
+import { connect } from "react-redux";
+import { getMovies } from "./actions";
 // import CountDown from "./CountDown";
 
-export default class MoviesList extends Component {
+class MoviesList extends Component {
+  async componentDidMount() {
+    await this.props.dispatch(getMovies());
+
+    //not using the mapDispatchtoProps in this case
+  }
+
   render() {
     const { movies } = this.props;
     return (
@@ -15,3 +23,9 @@ export default class MoviesList extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  movies: state.movies.movies
+});
+
+export default connect(mapStateToProps)(MoviesList);

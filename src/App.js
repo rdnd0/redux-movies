@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import MoviesList from "./movies/MoviesList";
 import MovieDetail from "./movies/MovieDetail";
 import Toggle from "./toggle/Toggle";
@@ -19,31 +19,19 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(...middleware))
 );
 
-class App extends Component {
-  state = {
-    movies: []
-  };
-  componentDidMount() {}
-
-  render() {
-    const { movies } = this.state;
-    return (
-      <Provider store={store}>
-        <Router>
-          <Link to="/">
-            <h1>Movies</h1>
-          </Link>
-          <Toggle />
-          <Route
-            exact
-            path="/"
-            render={props => <MoviesList {...props} movies={movies} />}
-          />
-          <Route path="/:id" component={MovieDetail} />
-        </Router>
-      </Provider>
-    );
-  }
+function App() {
+  return (
+    <Provider store={store}>
+      <Router>
+        <Link to="/">
+          <h1>Movies</h1>
+        </Link>
+        <Toggle />
+        <Route exact path="/" component={MoviesList} />
+        <Route path="/:id" component={MovieDetail} />
+      </Router>
+    </Provider>
+  );
 }
 
 export default App;

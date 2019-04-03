@@ -28,7 +28,7 @@ export default class MovieDetail extends Component {
         <div
           style={{
             height: "60vh",
-            backgroundImage: `url(https://image.tmdb.org/t/p/w200${
+            backgroundImage: `url(https://image.tmdb.org/t/p/w500${
               movie.poster_path
             })`,
             backgroundPosition: "top",
