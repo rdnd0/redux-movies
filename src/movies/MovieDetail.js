@@ -1,28 +1,15 @@
 import React, { Component } from "react";
 import Overdrive from "react-overdrive";
+import { connect } from "react-redux";
+import { getMovie } from "./actions";
 
-export default class MovieDetail extends Component {
-  state = {
-    movie: {}
-  };
-
-  async componentDidMount() {
+class MovieDetail extends Component {
+  componentDidMount() {
     const { match } = this.props;
-    try {
-      const res = await fetch(`https://api.themoviedb.org/3/movie${
-        match.url
-      }?api_key=4b66406001afb2955162b4ced6315919&language=en-US
-      `);
-      const movie = await res.json();
-      this.setState({
-        movie
-      });
-    } catch (e) {
-      console.log(e);
-    }
+    this.props.dispatch(getMovie(match.params.id));
   }
   render() {
-    const { movie } = this.state;
+    const { movie } = this.props;
     return (
       <div>
         <div
@@ -70,3 +57,10 @@ export default class MovieDetail extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  movie: state.movies.movie,
+  isLoaded: state.movies.movieisLoaded
+});
+
+export default connect(mapStateToProps)(MovieDetail);

@@ -5,14 +5,16 @@ import { getMovies } from "./actions";
 // import CountDown from "./CountDown";
 
 class MoviesList extends Component {
-  async componentDidMount() {
-    await this.props.dispatch(getMovies());
+  componentDidMount() {
+    const { isLoaded } = this.props;
+    !isLoaded && this.props.dispatch(getMovies());
 
     //not using the mapDispatchtoProps in this case
   }
 
   render() {
-    const { movies } = this.props;
+    const { movies, isLoaded } = this.props;
+    if (!isLoaded) return <h2>Loading</h2>;
     return (
       <div className="movie-grid">
         {movies.map(movie => (
@@ -25,7 +27,8 @@ class MoviesList extends Component {
 }
 
 const mapStateToProps = state => ({
-  movies: state.movies.movies
+  movies: state.movies.movies,
+  isLoaded: state.movies.moviesLoaded
 });
 
 export default connect(mapStateToProps)(MoviesList);
