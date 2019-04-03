@@ -3,6 +3,7 @@
 //this will be used by the reducer to avoid typos
 export const GET_MOVIES = "GET_MOVIES";
 export const GET_MOVIE = "GET_MOVIE";
+export const RESET_MOVIE = "RESET_MOVIE";
 
 //this function can now dispatch an action
 export function getMovies() {
@@ -30,5 +31,11 @@ export function getMovie(url) {
       type: "GET_MOVIE",
       movie: movie
     });
+  };
+}
+
+export function resetMovie() {
+  return {
+    type: "RESET_MOVIE"
   };
 }

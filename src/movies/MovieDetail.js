@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import Overdrive from "react-overdrive";
 import { connect } from "react-redux";
-import { getMovie } from "./actions";
+import { getMovie, resetMovie } from "./actions";
 
 class MovieDetail extends Component {
   componentDidMount() {
     const { match } = this.props;
     this.props.dispatch(getMovie(match.params.id));
+  }
+
+  componentWillUnmount() {
+    this.props.dispatch(resetMovie());
   }
   render() {
     const { movie } = this.props;
